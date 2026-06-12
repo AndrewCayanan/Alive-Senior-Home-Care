@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us – Alive Senior Home Care</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<script async
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVQ-dSvgT-bw2xaqvdFkaS9lzmjO4-bs0&callback=initMap">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  emailjs.init("1fyd81KiEjTAhAo57"); // Replace with your EmailJS user ID
+</script>
+<body>
+
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <nav id="navbar">
+        <div class="container nav-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"></span>
+                <span>Alive Senior <em>Home Care</em></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#services" class="nav-link">Services</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="index.html#testimonials" class="nav-link">Testimonials</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+            </ul>
+            <a href="contact.html" class="cta-button">Free Consultation</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html#services">Services</a>
+            <a href="about.html">About</a>
+            <a href="index.html#testimonials">Testimonials</a>
+            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="mobile-cta">Free Consultation →</a>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-bg"></div>
+        <div class="container page-hero-content">
+            <!-- <div class="breadcrumb reveal-up"><a href="index.html">Home</a> / Contact Us</div> -->
+            <h1 class="reveal-up delay-1">Let's <em>Connect</em></h1>
+            <p class="reveal-up delay-2">We're here to help — no pressure, just genuine care and guidance.</p>
+        </div>
+    </section>
+
+    <!-- Contact Main -->
+    <section class="contact-main">
+        <div class="container contact-layout">
+
+            <!-- Left: Info + Cards -->
+            <div class="contact-sidebar reveal-left">
+
+                <div class="contact-info-block">
+                    <h2>Get In Touch</h2>
+                    <p>Whether you're exploring options or ready to start, our care advisors are happy to help — 7 days a week.</p>
+                </div>
+
+                <div class="contact-cards">
+
+                    <div class="contact-card">
+                        <div class="contact-card-icon">📞</div>
+                        <div>
+                            <div class="contact-card-label">Call Us Directly</div>
+                            <a href="tel:+19518343163" class="contact-card-value">+1 (951) 834-3163</a>
+                            <div class="contact-card-note">Available 24/7 for emergencies</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-card-icon">✉️</div>
+                        <div>
+                            <div class="contact-card-label">Email Us</div>
+                            <a href="mailto:aliveseniorhomecare@gmail.com" class="contact-card-value">aliveseniorhomecare@gmail.com</a>
+                            <div class="contact-card-note">We reply within 4 hours</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-card-icon">📍</div>
+                        <div>
+                            <div class="contact-card-label">Service Area</div>
+                            <div class="contact-card-value">Phoenix Metro, Arizona</div>
+                            <div class="contact-card-note">Phoenix · Scottsdale · Tempe · Mesa</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-card-icon">🕐</div>
+                        <div>
+                            <div class="contact-card-label">Office Hours</div>
+                            <div class="contact-card-value">Mon–Fri: 8 AM – 6 PM</div>
+                            <div class="contact-card-note">24/7 emergency line always open</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Map -->
+                <div class="map-container">
+                    <div id="map"></div>
+                </div>
+
+            </div>
+
+            <!-- Right: Form -->
+            <div class="contact-form-wrapper reveal-right">
+                <div class="form-header">
+                    <h2>Request a Free Consultation</h2>
+                    <p>Fill in the form below and we'll reach out within 24 hours to discuss your needs.</p>
+                </div>
+
+                <form id="contactForm" class="contact-form" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" placeholder="Jane" required>
+                            <span class="form-error" id="firstNameError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" placeholder="Smith" required>
+                            <span class="form-error" id="lastNameError"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+                        <span class="form-error" id="emailError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(602) 555-0000" required>
+                        <span class="form-error" id="phoneError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Service Interested In</label>
+                        <select id="service" name="service">
+                            <option value="">Select a service...</option>
+                            <option>Personal Care</option>
+                            <option>Meal Preparation</option>
+                            <option>Housekeeping</option>
+                            <option>Medication Management</option>
+                            <option>Companionship & Errands</option>
+                            <option>Specialized / Dementia Care</option>
+                            <option>Not Sure Yet – Need Guidance</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Tell Us About Your Needs</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Share any details about your loved one's situation, care schedule, or questions you have..."></textarea>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" id="consent" name="consent">
+                        <label for="consent">I agree to be contacted by Alive Senior Home Care regarding my inquiry.</label>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span class="btn-text">Send My Request</span>
+                        <span class="btn-loader" id="btnLoader" style="display:none;">Sending...</span>
+                    </button>
+
+                    <!-- Success State -->
+                    <div class="form-success" id="formSuccess" style="display:none;">
+                        <div class="success-icon">✅</div>
+                        <h3>Thank You!</h3>
+                        <p>Your consultation request has been received. A care advisor will reach out within 24 hours.</p>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">FAQ</span>
+                <h2>Common Questions <em>Answered</em></h2>
+            </div>
+            <div class="faq-list reveal-up">
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How quickly can care services begin?</span>
+                        <span class="faq-chevron">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>In most cases, we can have a caregiver in place within 24–48 hours of your initial consultation. For urgent situations, we do our best to arrange same-day care.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What areas do you serve?</span>
+                        <span class="faq-chevron">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We serve the entire Phoenix metro area, including Phoenix, Scottsdale, Tempe, Mesa, Chandler, Gilbert, and surrounding communities.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do you select and train your caregivers?</span>
+                        <span class="faq-chevron">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>All caregivers undergo thorough background checks, reference verification, and skills assessments before joining our team. They also receive ongoing training in areas including dementia care, first aid, and person-centered care practices.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do you accept insurance?</span>
+                        <span class="faq-chevron">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We work with a variety of payment options including private pay, long-term care insurance, and VA benefits. Contact us to discuss which options may apply to your situation.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can I change or cancel services?</span>
+                        <span class="faq-chevron">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely. We offer flexible scheduling with no long-term contracts required. You can adjust, pause, or discontinue services at any time with reasonable notice.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <div class="logo"><span class="logo-icon"></span> Alive Senior <em>Home Care</em></div>
+                <p>Providing compassionate, professional home care to Arizona seniors since yesterday.</p>
+                <div class="footer-badges">
+                    <span>Licensed</span>
+                    <span>Insured</span>
+                    <span>Background Checked</span>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#testimonials">Testimonials</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>📞 <a href="tel:+19518343163">+1 (951) 834-3163</a></p>
+                <p>✉️ <a href="mailto:aliveseniorhomecare@gmail.com">aliveseniorhomecare@gmail.com</a></p>
+                <p>📍 Phoenix Metro Area, Arizona</p>
+                <p>🕐 24/7 Emergency Support</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Alive Senior Home Care. All rights reserved. | Serving Phoenix, Scottsdale, Tempe & Mesa</p>
+        </div>
+    </footer>
+
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <script src="script.js"></script>
+</body>
+</html>
