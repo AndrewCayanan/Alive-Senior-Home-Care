@@ -193,6 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ─────────────────────────────────────────
     // 8. CONTACT FORM VALIDATION & EMAILJS SUBMISSION
     // ─────────────────────────────────────────
+
     const contactForm = document.getElementById('contactForm');
 
     if (contactForm) {
@@ -248,17 +249,25 @@ document.addEventListener('DOMContentLoaded', () => {
             const loader = document.getElementById('btnLoader');
             const btnText = btn.querySelector('.btn-text');
             const successEl = document.getElementById('formSuccess');
+
             const now = new Date();
-            const formattedTime = now.toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+            const formattedTime = now.toLocaleString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
 
             btn.disabled = true;
             if (btnText) btnText.style.display = 'none';
-            if (loader) loader.style.display = 'inline';
+            if (loader) loader.style.display = 'inline-block';
 
             try {
+                // 📩 1. ADMIN NOTIFICATION (YOU)
                 await emailjs.send(
-                    "service_eku5bnc",
-                    "template_efnyzx9",
+                    "service_3yo1e45",
+                    "template_3fx7lwf",
                     {
                         first_name: fields.firstName.el.value,
                         last_name: fields.lastName.el.value,
@@ -270,9 +279,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 );
 
+                // 🤖 2. AUTO REPLY (CUSTOMER)
                 await emailjs.send(
-                    "service_eku5bnc",
-                    "template_07n89ru",
+                    "service_3yo1e45",
+                    "template_g9eivbp",
                     {
                         first_name: fields.firstName.el.value,
                         last_name: fields.lastName.el.value,
