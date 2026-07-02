@@ -453,7 +453,7 @@ img { max-width: 100%; }
 
 /* Scroll Hint */
 .scroll-hint {
-    position: absolute;
+    position: center;
     bottom: 90px;
     left: 46%;
     transform: translateX(-50%);
